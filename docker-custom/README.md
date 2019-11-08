@@ -1,4 +1,4 @@
-# Build your own Docker image
+# Build your own Node Red Docker image with custom packages
 
 The docker-custom directory contains files you need to build your own images.
 

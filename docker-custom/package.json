@@ -24,11 +24,14 @@
         },
         {
             "name": "Raymond Mouthaan"
-        }
+        },
+		{   
+		    "name": "George Fridrich"
+		}
     ],
     "dependencies": {
         "node-red": "1.0.2",
-		"node-red-contrib-dominodb": "*"
+        "node-red-contrib-dominodb": "*"
     },
     "engines": {
         "node": ">=10"
