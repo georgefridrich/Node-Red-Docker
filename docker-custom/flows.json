@@ -1,0 +1,347 @@
+[
+    {
+        "id": "1674439f.469be4",
+        "type": "tab",
+        "label": "Project Keep API",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "a7d5e410.f821",
+        "type": "tab",
+        "label": "Project Keep & MQTT",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "e6b8ed0e.e396b",
+        "type": "tab",
+        "label": "Project Keep & Sentiment",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "752fde56.550c3",
+        "type": "tls-config",
+        "z": "",
+        "name": "",
+        "cert": "",
+        "key": "",
+        "ca": "",
+        "certname": "",
+        "keyname": "",
+        "caname": "ca-chain.cert.pem",
+        "servername": "",
+        "verifyservercert": false
+    },
+    {
+        "id": "dfa3b5fa.50c9a",
+        "type": "mqtt-broker",
+        "z": "",
+        "name": "New Broker",
+        "broker": "",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "a6085a0d.ac483",
+        "type": "mqtt-broker",
+        "z": "",
+        "name": "Brokernator",
+        "broker": " tailor.cloudmqtt.com",
+        "port": "18113 ",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "b0d9bfa1.784e68",
+        "type": "http request",
+        "z": "1674439f.469be4",
+        "name": "GET /lists/{unid}  Pulls in view data",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": false,
+        "url": "https://frascati.projectkeep.io:8008/lists/2D7D51D22BA0EBAC85257A7B006D8FC8?db=48257C630031F757&scope=all",
+        "tls": "752fde56.550c3",
+        "proxy": "",
+        "authType": "bearer",
+        "x": 344.6565856933594,
+        "y": 136.08078002929688,
+        "wires": [
+            [
+                "7bde278c.d33b1"
+            ]
+        ]
+    },
+    {
+        "id": "a90d6b64.ac756",
+        "type": "inject",
+        "z": "1674439f.469be4",
+        "name": "Initiate API Request (Project Keep)",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 234.65660095214844,
+        "y": 68.26261901855469,
+        "wires": [
+            [
+                "b0d9bfa1.784e68"
+            ]
+        ]
+    },
+    {
+        "id": "7bde278c.d33b1",
+        "type": "debug",
+        "z": "1674439f.469be4",
+        "name": "View payload",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 445.11114501953125,
+        "y": 204.53538513183594,
+        "wires": []
+    },
+    {
+        "id": "febcd2fb.67785",
+        "type": "inject",
+        "z": "1674439f.469be4",
+        "name": "Initiate API Request (Project Keep)",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 233.33323669433594,
+        "y": 340.11126708984375,
+        "wires": [
+            [
+                "afb29d9f.45952"
+            ]
+        ]
+    },
+    {
+        "id": "afb29d9f.45952",
+        "type": "http request",
+        "z": "1674439f.469be4",
+        "name": "GET /lists/{unid}  Pulls in view data",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": false,
+        "url": "https://frascati.projectkeep.io:8008/lists/2D7D51D22BA0EBAC85257A7B006D8FC8?db=48257C630031F757&scope=all",
+        "tls": "752fde56.550c3",
+        "proxy": "",
+        "authType": "bearer",
+        "x": 345.111083984375,
+        "y": 406.13348388671875,
+        "wires": [
+            [
+                "5fa11763.bd2bd8"
+            ]
+        ]
+    },
+    {
+        "id": "5fa11763.bd2bd8",
+        "type": "json",
+        "z": "1674439f.469be4",
+        "name": "Modify payload",
+        "property": "payload",
+        "action": "str",
+        "pretty": true,
+        "x": 454.99993896484375,
+        "y": 474.7113037109375,
+        "wires": [
+            [
+                "37528048.f25eb",
+                "f4531ed.4c3c76"
+            ]
+        ]
+    },
+    {
+        "id": "37528048.f25eb",
+        "type": "debug",
+        "z": "1674439f.469be4",
+        "name": "View payload",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 546.0000610351562,
+        "y": 543.622314453125,
+        "wires": []
+    },
+    {
+        "id": "51b19deb.e1b52c",
+        "type": "comment",
+        "z": "1674439f.469be4",
+        "name": "Interact with Project Keep API",
+        "info": "Do a simple GET request to Project Keep using the GET LIST API.",
+        "x": 155.11119079589844,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "b82d8235.e0088",
+        "type": "comment",
+        "z": "1674439f.469be4",
+        "name": "Interact with Project Keep API, modify response payload, and email result",
+        "info": "",
+        "x": 295.111083984375,
+        "y": 290.66668701171875,
+        "wires": []
+    },
+    {
+        "id": "40b4b53d.f30ba4",
+        "type": "comment",
+        "z": "a7d5e410.f821",
+        "name": "Interact with Project Keep API, modify payload, and post to MQTT",
+        "info": "",
+        "x": 264.0000457763672,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "9cb12c45.2f6ab",
+        "type": "inject",
+        "z": "a7d5e410.f821",
+        "name": "Initiate API Request (Project Keep)",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 233.6666717529297,
+        "y": 67.99998474121094,
+        "wires": [
+            [
+                "7d2f78cc.3ce72"
+            ]
+        ]
+    },
+    {
+        "id": "7d2f78cc.3ce72",
+        "type": "http request",
+        "z": "a7d5e410.f821",
+        "name": "GET /lists/{unid}  Pulls in view data",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": false,
+        "url": "https://frascati.projectkeep.io:8008/lists/2D7D51D22BA0EBAC85257A7B006D8FC8?db=48257C630031F757&scope=all",
+        "tls": "752fde56.550c3",
+        "proxy": "",
+        "authType": "bearer",
+        "x": 345.55548095703125,
+        "y": 136.11109924316406,
+        "wires": [
+            [
+                "2baa1f69.99536"
+            ]
+        ]
+    },
+    {
+        "id": "be230c8.1a4bd7",
+        "type": "comment",
+        "z": "e6b8ed0e.e396b",
+        "name": "Nothing to see here yet, move along!",
+        "info": "",
+        "x": 174,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "9ec22592.045da8",
+        "type": "mqtt out",
+        "z": "a7d5e410.f821",
+        "name": "MQTT",
+        "topic": "Project Keep",
+        "qos": "",
+        "retain": "",
+        "broker": "a6085a0d.ac483",
+        "x": 629,
+        "y": 239.40000915527344,
+        "wires": []
+    },
+    {
+        "id": "2baa1f69.99536",
+        "type": "json",
+        "z": "a7d5e410.f821",
+        "name": "Modify Payload",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 455,
+        "y": 203.8000030517578,
+        "wires": [
+            [
+                "c275837d.a54f78",
+                "9ec22592.045da8"
+            ]
+        ]
+    },
+    {
+        "id": "c275837d.a54f78",
+        "type": "debug",
+        "z": "a7d5e410.f821",
+        "name": "View Payload",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 658,
+        "y": 168.40000915527344,
+        "wires": []
+    },
+    {
+        "id": "f4531ed.4c3c76",
+        "type": "e-mail",
+        "z": "1674439f.469be4",
+        "server": "smtp.gmail.com",
+        "port": "465",
+        "secure": false,
+        "tls": false,
+        "name": "glf58100@gmail.com",
+        "dname": "Send Gmail",
+        "x": 648.9999847412109,
+        "y": 408.59999084472656,
+        "wires": []
+    }
+]
