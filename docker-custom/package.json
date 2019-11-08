@@ -24,10 +24,7 @@
         },
         {
             "name": "Raymond Mouthaan"
-        },
-		{   
-		    "name": "George Fridrich"
-		}
+        }
     ],
     "dependencies": {
         "node-red": "1.0.2",
