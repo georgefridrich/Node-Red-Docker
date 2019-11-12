@@ -44,7 +44,7 @@ Run `docker-make.sh`
 $ ./docker-make.sh
 ```
 
-This starts building your custom image and might take a while depending on the system you are running on.
+This will start building your custom image and might take a while depending on the system you are running on.
 
 When building is done you can push the custom image to our Manila repo with the following command:
 
@@ -52,7 +52,11 @@ When building is done you can push the custom image to our Manila repo with the 
 docker push 657641368736.dkr.ecr.us-east-2.amazonaws.com/manila:node-red-build
 ```
 
-*AWS Token must be valid to push to our secure repo.
+*AWS token must be valid to push to our secure repo.  If your token expires use the following command on your AWS CLI enabled system:
+
+```shell script
+aws ecr get-login --no-include-email
+```
 
 ## 4. **Advanced Configuration**
 
