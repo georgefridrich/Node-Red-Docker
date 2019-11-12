@@ -28,7 +28,7 @@
     ],
     "dependencies": {
         "node-red": "1.0.2",
-		"node-red-contrib-dominodb": "*"
+		"node-red-contrib-ibmconnections": "*"
     },
     "engines": {
         "node": ">=10"
