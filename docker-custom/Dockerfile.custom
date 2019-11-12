@@ -76,7 +76,7 @@ ENV NODE_RED_VERSION=$NODE_RED_VERSION \
     FLOWS=flows.json
 
 # Uncomment to enable safe start mode (flows not running)
-# ENV NODE_RED_ENABLE_SAFE_MODE=true
+ENV NODE_RED_ENABLE_SAFE_MODE=true
 
 # Enable flow management via projects
 ENV NODE_RED_ENABLE_PROJECTS=true
