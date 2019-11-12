@@ -34,7 +34,7 @@ Change the build arguments as needed:
    - `--build-arg BUILD_DATE="$(date +"%Y-%m-%dT%H:%M:%SZ")"` : don't change this
    - `--build-arg TAG_SUFFIX=default` : to build the default or minimal image
    - `--file Dockerfile.custom` : Dockerfile to use to build your image.
-   - `--tag testing:node-red-build` : set the image name and tag
+   - `--tag manila:node-red-build` : set the image name and tag
 
 ## 3. **Run docker-make.sh**
 
@@ -57,6 +57,8 @@ docker push 657641368736.dkr.ecr.us-east-2.amazonaws.com/manila:node-red-build
 ```shell script
 aws ecr get-login --no-include-email
 ```
+
+*If you still cannot push the image to the Manila repo please contact George Fridrich to verify access.
 
 ## 4. **Advanced Configuration**
 
