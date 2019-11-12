@@ -13,4 +13,4 @@ docker build --no-cache \
     --build-arg BUILD_DATE="$(date +"%Y-%m-%dT%H:%M:%SZ")" \
     --build-arg TAG_SUFFIX=default \
     --file Dockerfile.custom \
-    --tag testing:node-red-build .
+    --tag 657641368736.dkr.ecr.us-east-2.amazonaws.com/manila:node-red-build .
