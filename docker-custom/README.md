@@ -52,7 +52,7 @@ When building is done you can push the custom image to our Manila repo with the 
 docker push 657641368736.dkr.ecr.us-east-2.amazonaws.com/manila:node-red-build
 ```
 
-*AWS token must be valid to push to our secure repo.  If your token expires use the following command on your AWS CLI enabled system:
+AWS token must be set on the docker server to push to our secure repo.  If your token expires pr you don't have a token enter the following command on your AWS CLI enabled system:
 
 ```shell script
 aws ecr get-login --no-include-email
