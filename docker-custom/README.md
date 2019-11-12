@@ -46,17 +46,13 @@ $ ./docker-make.sh
 
 This starts building your custom image and might take a while depending on the system you are running on.
 
-When building is done you can run the custom image by the following command:
+When building is done you can push the custom image to our Manila repo with the following command:
 
 ```shell script
-$ docker run -it -p1880:1880 testing:node-red-build
+docker push 657641368736.dkr.ecr.us-east-2.amazonaws.com/manila:node-red-build
 ```
 
-With the following command you can verify your docker image:
-
-```shell script
-$ docker inspect testing:node-red-build
-```
+*AWS Token must be valid to push to our secure repo.
 
 ## 4. **Advanced Configuration**
 
